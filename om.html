@@ -1,0 +1,2422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calm Companion - Mental Wellness</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #53aec7;
+      --primary-light: #bbd6dd;
+      --secondary: #7b68ee;
+      --accent: #ff8c94;
+      --light: #f8f9fa;
+      --dark: #343a40;
+      --success: #4caf50;
+      --text: #495057;
+      --background: #f0f7ff;
+      --card-bg: #ffffff;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header & Navigation */
+    header {
+      background-color: var(--card-bg);
+      box-shadow: var(--shadow);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      padding: 15px 0;
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      z-index: 1001;
+    }
+
+    .logo-icon {
+      color: var(--primary);
+      font-size: 28px;
+      transition: var(--transition);
+    }
+
+    .logo:hover .logo-icon {
+      transform: rotate(360deg);
+    }
+
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      padding: 8px 0;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      font-size: 16px;
+      white-space: nowrap;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--secondary);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(83, 174, 199, 0.3);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 160px 0 80px;
+      text-align: center;
+      background: linear-gradient(135deg, #e0f0ff 0%, #f5fbff 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(83, 174, 199, 0.1) 0%, transparent 70%);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
+    }
+
+    .tagline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      color: var(--primary);
+      margin-bottom: 20px;
+      line-height: 1.2;
+      position: relative;
+      z-index: 2;
+    }
+
+    .subheading {
+      font-size: clamp(1rem, 2vw, 1.4rem);
+      max-width: 700px;
+      margin: 0 auto 40px;
+      color: var(--text);
+      padding: 0 15px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Features Section */
+    .features {
+      padding: 80px 0;
+      background-color: var(--card-bg);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 40px;
+      color: var(--primary);
+      font-family: 'Playfair Display', serif;
+      padding: 0 15px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      padding: 0 10px;
+    }
+
+    .feature-card {
+      background-color: white;
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(83, 174, 199, 0.1), transparent);
+      transform: rotate(45deg);
+      transition: var(--transition);
+      opacity: 0;
+    }
+
+    .feature-card:hover::before {
+      opacity: 1;
+      animation: shimmer 0.6s ease-in-out;
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-100%) rotate(45deg); }
+      100% { transform: translateX(100%) rotate(45deg); }
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .feature-icon {
+      font-size: 48px;
+      color: var(--primary);
+      margin-bottom: 20px;
+      transition: var(--transition);
+      position: relative;
+      z-index: 2;
+    }
+
+    .feature-card:hover .feature-icon {
+      transform: scale(1.1) rotateY(360deg);
+      color: var(--secondary);
+    }
+
+    .feature-title {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: var(--dark);
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Benefits Section */
+    .benefits {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #5d93c6 0%, #7b68ee 100%);
+      color: white;
+      position: relative;
+    }
+
+    .benefits::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    }
+
+    .benefits .section-title {
+      color: white;
+      position: relative;
+      z-index: 2;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 0 10px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .benefit-card {
+      background-color: rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius);
+      padding: 30px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: var(--transition);
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .benefit-title {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+    }
+
+    /* App Sections */
+    .app-sections {
+      padding: 80px 0;
+      background-color: var(--background);
+    }
+
+    .section-tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 0 10px;
+    }
+
+    .tab-btn {
+      padding: 12px 24px;
+      background-color: transparent;
+      border: 2px solid var(--primary);
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      color: var(--primary);
+      font-size: 0.95rem;
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(83, 174, 199, 0.3);
+    }
+
+    .tab-content {
+      display: none;
+      background-color: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(83, 174, 199, 0.1);
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .tab-title {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: var(--primary);
+      font-family: 'Playfair Display', serif;
+    }
+
+    .media-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    .media-item {
+      background-color: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .media-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .media-iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+    }
+
+    .media-title {
+      padding: 15px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-align: center;
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      color: white;
+    }
+
+    /* Quotes Section */
+    .quotes-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .quote-card {
+      background: linear-gradient(135deg, white, #f8f9fa);
+      border-left: 4px solid var(--primary);
+      border-radius: var(--radius);
+      padding: 25px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .quote-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .quote-card::before {
+      content: '"';
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      font-size: 60px;
+      color: var(--primary);
+      font-family: serif;
+      opacity: 0.3;
+    }
+
+    .quote-card p {
+      font-style: italic;
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      padding-left: 20px;
+    }
+
+    .quote-author {
+      text-align: right;
+      font-weight: 600;
+      color: var(--primary);
+      font-style: normal !important;
+    }
+
+    /* Gratitude Wall */
+    .gratitude-form {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .gratitude-input {
+      flex: 1;
+      min-width: 250px;
+      padding: 15px 20px;
+      border: 2px solid #e0e0e0;
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 16px;
+      transition: var(--transition);
+    }
+
+    .gratitude-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(83, 174, 199, 0.1);
+    }
+
+    .gratitude-wall {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .gratitude-card {
+      background: linear-gradient(135deg, white, #f8f9fa);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      position: relative;
+      border-left: 4px solid var(--accent);
+      transition: var(--transition);
+    }
+
+    .gratitude-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .gratitude-card::before {
+      content: "♥";
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 20px;
+      color: var(--accent);
+      opacity: 0.7;
+    }
+
+    .gratitude-text {
+      margin: 5px 0 15px 0;
+      font-style: italic;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .gratitude-date {
+      text-align: right;
+      font-size: 0.85rem;
+      color: #888;
+      font-weight: 600;
+    }
+
+    /* Chatbot Section */
+    .chatbot-container {
+      display: flex;
+      flex-direction: column;
+      height: 450px;
+      background-color: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(83, 174, 199, 0.2);
+    }
+
+    .chat-header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 15px 20px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .chat-header i {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      background: linear-gradient(to bottom, #f8f9fa, white);
+    }
+
+    .message {
+      max-width: 80%;
+      padding: 12px 18px;
+      border-radius: 20px;
+      position: relative;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .bot-message {
+      align-self: flex-start;
+      background: linear-gradient(135deg, #e3f2fd, #f0f7ff);
+      border: 1px solid rgba(83, 174, 199, 0.2);
+      border-bottom-left-radius: 8px;
+    }
+
+    .user-message {
+      align-self: flex-end;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border-bottom-right-radius: 8px;
+    }
+
+    .chat-input-container {
+      display: flex;
+      padding: 15px;
+      border-top: 1px solid #eee;
+      background-color: white;
+      gap: 10px;
+    }
+
+    .chat-input {
+      flex: 1;
+      padding: 12px 18px;
+      border: 2px solid #e0e0e0;
+      border-radius: 25px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .chat-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(83, 174, 199, 0.1);
+    }
+
+    .send-btn {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .send-btn:hover {
+      transform: scale(1.05) rotate(15deg);
+      box-shadow: 0 4px 15px rgba(83, 174, 199, 0.4);
+    }
+
+    /* Team Section */
+    .team {
+      padding: 80px 0;
+      background-color: var(--card-bg);
+      text-align: center;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+      padding: 0 10px;
+    }
+
+    .team-member {
+      background-color: white;
+      border-radius: var(--radius);
+      padding: 30px 20px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .team-member::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(83, 174, 199, 0.1), transparent);
+      transition: var(--transition);
+    }
+
+    .team-member:hover::before {
+      left: 100%;
+      transition: left 0.6s ease;
+    }
+
+    .team-member:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .member-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      transition: var(--transition);
+      position: relative;
+      z-index: 2;
+    }
+
+    .team-member:hover .member-avatar {
+      transform: scale(1.1) rotateY(360deg);
+    }
+
+    .member-name {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .member-role {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.95rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #2c3e50, #34495e);
+      color: white;
+      padding: 60px 0 30px;
+      position: relative;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h3 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-col h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 2px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: #ccc;
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-links a:hover {
+      color: white;
+      transform: translateX(5px);
+    }
+
+    .footer-links i {
+      margin-right: 10px;
+      width: 20px;
+      text-align: center;
+      color: var(--primary);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #bbb;
+      font-size: 0.9rem;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: var(--primary);
+      cursor: pointer;
+      z-index: 1001;
+      transition: var(--transition);
+    }
+
+    .mobile-menu-btn:hover {
+      transform: scale(1.1);
+    }
+
+    /* Scroll to top button */
+    .scroll-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      transition: var(--transition);
+      z-index: 999;
+    }
+
+    .scroll-top:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(83, 174, 199, 0.4);
+    }
+
+    .scroll-top.show {
+      display: flex;
+    }
+
+    /* Loading animation */
+    .loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: white;
+      animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .hero {
+        padding: 140px 0 60px;
+      }
+      
+      .features-grid, .benefits-grid, .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+      
+      .media-container, .quotes-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, var(--card-bg), #f8f9fa);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        transform: translateX(-100%);
+        transition: transform 0.4s ease;
+        z-index: 1000;
+        gap: 30px;
+        backdrop-filter: blur(10px);
+      }
+      
+      .nav-links.active {
+        transform: translateX(0);
+      }
+      
+      .auth-buttons {
+        margin-top: 20px;
+        flex-direction: column;
+        width: 100%;
+        max-width: 200px;
+      }
+      
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+      
+      .hero {
+        padding: 120px 0 50px;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .features, .benefits, .app-sections, .team {
+        padding: 60px 0;
+      }
+      
+      .section-tabs {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      
+      .section-tabs::-webkit-scrollbar {
+        display: none;
+      }
+      
+      .tab-btn {
+        white-space: nowrap;
+      }
+      
+      .gratitude-form {
+        flex-direction: column;
+      }
+      
+      .gratitude-input {
+        min-width: 100%;
+      }
+
+      .scroll-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo-text {
+        font-size: 20px;
+      }
+      
+      .hero {
+        padding: 100px 0 40px;
+      }
+      
+      .tagline {
+        font-size: 1.8rem;
+      }
+      
+      .subheading {
+        font-size: 1rem;
+      }
+      
+      .feature-icon {
+        font-size: 40px;
+      }
+      
+      .feature-title {
+        font-size: 1.2rem;
+      }
+      
+      .team-grid {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .chatbot-container {
+        height: 400px;
+      }
+
+      .tab-content {
+        padding: 20px;
+      }
+    }
+
+    /* Intersection Observer Classes */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .slide-in-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .slide-in-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .slide-in-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .scale-in {
+      opacity: 0;
+      transform: scale(0.8);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .scale-in.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Additional animations */
+    .bounce-in {
+      animation: bounceIn 0.8s ease-out;
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0.3); opacity: 0; }
+      50% { transform: scale(1.05); }
+      70% { transform: scale(0.9); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .typewriter {
+      overflow: hidden;
+      border-right: 3px solid var(--primary);
+      white-space: nowrap;
+      animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: var(--primary); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Scroll to top button -->
+  <button class="scroll-top" id="scrollTop">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <header>
+    <div class="container">
+      <nav class="navbar">
+        <a href="#" class="logo">
+          <i class="fas fa-spa logo-icon"></i>
+          <span class="logo-text">Calm Companion</span>
+        </a>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+        
+        <div class="nav-links" id="navLinks">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#features" class="nav-link">Features</a>
+          <a href="#app" class="nav-link">App</a>
+          <a href="#team" class="nav-link">Team</a>
+          <div class="auth-buttons" id="authButtons">
+            <a href="#" class="btn btn-outline" onclick="showLogin()">Login</a>
+            <a href="#" class="btn btn-primary" onclick="showRegister()">Sign Up</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <h1 class="tagline animate__animated animate__fadeInUp">Escape the noise, Embrace the calm</h1>
+      <p class="subheading animate__animated animate__fadeInUp animate__delay-1s">Calm Companion is your personal mental wellness space designed to help you unwind, reflect, and find peace in a fast-moving world.</p>
+      <div class="hero-buttons animate__animated animate__fadeInUp animate__delay-2s">
+        <button class="btn btn-primary" onclick="scrollToSection('app')">Get Started</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <div class="container">
+      <h2 class="section-title fade-in">Key Features</h2>
+      <div class="features-grid">
+        <div class="feature-card fade-in" data-delay="100">
+          <i class="fas fa-music feature-icon"></i>
+          <h3 class="feature-title">Music Lounge</h3>
+          <p>Access curated playlists for relaxation, focus, and sleep through embedded Spotify integration.</p>
+        </div>
+        <div class="feature-card fade-in" data-delay="200">
+          <i class="fas fa-yin-yang feature-icon"></i>
+          <h3 class="feature-title">Meditation</h3>
+          <p>Guided meditations and breathing exercises via embedded YouTube videos.</p>
+        </div>
+        <div class="feature-card fade-in" data-delay="300">
+          <i class="fas fa-quote-right feature-icon"></i>
+          <h3 class="feature-title">Inspirational Quotes</h3>
+          <p>Daily positive affirmations and quotes to uplift your mood and mindset.</p>
+        </div>
+        <div class="feature-card fade-in" data-delay="400">
+          <i class="fas fa-heart feature-icon"></i>
+          <h3 class="feature-title">Gratitude Wall</h3>
+          <p>A personal space to record and reflect on things you're grateful for.</p>
+        </div>
+        <div class="feature-card fade-in" data-delay="500">
+          <i class="fas fa-robot feature-icon"></i>
+          <h3 class="feature-title">AI Chatbot</h3>
+          <p>A supportive AI companion to talk to without judgment whenever you need.</p>
+        </div>
+        <div class="feature-card fade-in" data-delay="600">
+          <i class="fas fa-user feature-icon"></i>
+          <h3 class="feature-title">User Profile</h3>
+          <p>Personalized experience with your own account and preferences.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="benefits">
+    <div class="container">
+      <h2 class="section-title slide-in-left">Experience The Benefits</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card slide-in-left" data-delay="100">
+          <h3 class="benefit-title">Reduced Stress & Anxiety</h3>
+          <p>Find your calm through guided practices and relaxing content.</p>
+        </div>
+        <div class="benefit-card slide-in-left" data-delay="200">
+          <h3 class="benefit-title">Improved Focus</h3>
+          <p>Enhance your concentration with specially designed music and exercises.</p>
+        </div>
+        <div class="benefit-card slide-in-left" data-delay="300">
+          <h3 class="benefit-title">Increased Positivity</h3>
+          <p>Uplift your mood with daily affirmations and gratitude practice.</p>
+        </div>
+        <div class="benefit-card slide-in-left" data-delay="400">
+          <h3 class="benefit-title">Emotional Balance</h3>
+          <p>Develop better self-awareness and emotional resilience over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- App Sections -->
+  <section id="app" class="app-sections">
+    <div class="container">
+      <h2 class="section-title fade-in">Explore Calm Companion</h2>
+      
+      <div class="section-tabs scale-in">
+        <button class="tab-btn active" data-tab="music">Music Lounge</button>
+        <button class="tab-btn" data-tab="meditation">Meditation</button>
+        <button class="tab-btn" data-tab="quotes">Quotes</button>
+        <button class="tab-btn" data-tab="gratitude">Gratitude Wall</button>
+        <button class="tab-btn" data-tab="chatbot">Chatbot</button>
+      </div>
+      
+      <!-- Music Section -->
+      <div id="music" class="tab-content active">
+        <h3 class="tab-title">Relaxing Music Lounge</h3>
+        <p>Select from our curated playlists to help you relax, focus, or sleep better.</p>
+        
+        <div class="media-container">
+          <div class="media-item">
+            <iframe class="media-iframe" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4WYpdgoIcn6" allow="encrypted-media"></iframe>
+            <div class="media-title">Peaceful Piano</div>
+          </div>
+          <div class="media-item">
+            <iframe class="media-iframe" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4t95PAs1EpY" allow="encrypted-media"></iframe>
+            <div class="media-title">Nature Sounds</div>
+          </div>
+          <div class="media-item">
+            <iframe class="media-iframe" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWZqd5JICZI0u" allow="encrypted-media"></iframe>
+            <div class="media-title">Deep Focus</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Meditation Section -->
+      <div id="meditation" class="tab-content">
+        <h3 class="tab-title">Meditation & Breathing Exercises</h3>
+        <p>Guided practices to help you center yourself and find inner peace.</p>
+        
+        <div class="media-container">
+          <div class="media-item">
+            <iframe class="media-iframe" src="https://www.youtube.com/embed/inpok4MKVLM" allowfullscreen></iframe>
+            <div class="media-title">5-Minute Meditation</div>
+          </div>
+          <div class="media-item">
+            <iframe class="media-iframe" src="https://www.youtube.com/embed/tEmt1Znux58" allowfullscreen></iframe>
+            <div class="media-title">Box Breathing Technique</div>
+          </div>
+          <div class="media-item">
+            <iframe class="media-iframe" src="https://www.youtube.com/embed/8HYLyuJZKno" allowfullscreen></iframe>
+            <div class="media-title">Mindfulness for Anxiety</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Quotes Section -->
+      <div id="quotes" class="tab-content">
+        <h3 class="tab-title">Daily Inspiration</h3>
+        <p>Positive affirmations and quotes to uplift your spirit.</p>
+        
+        <div class="quotes-container" id="quotesContainer">
+          <div class="quote-card">
+            <p>"The present moment is filled with joy and happiness. If you are attentive, you will see it."</p>
+            <p class="quote-author">- Thich Nhat Hanh</p>
+          </div>
+          <div class="quote-card">
+            <p>"You are enough just as you are. You don't need to change a thing."</p>
+            <p class="quote-author">- Unknown</p>
+          </div>
+          <div class="quote-card">
+            <p>"Breathe. Let go. And remind yourself that this very moment is the only one you know you have for sure."</p>
+            <p class="quote-author">- Oprah Winfrey</p>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+          <button class="btn btn-primary" onclick="generateNewQuote()">Get New Quote</button>
+        </div>
+      </div>
+      
+      <!-- Gratitude Wall -->
+      <div id="gratitude" class="tab-content">
+        <h3 class="tab-title">Gratitude Wall</h3>
+        <p>Take a moment to reflect on what you're grateful for today.</p>
+        
+        <div class="gratitude-form">
+          <input type="text" class="gratitude-input" id="gratitudeInput" placeholder="What are you grateful for today?">
+          <button class="btn btn-primary" onclick="addGratitude()">Add</button>
+        </div>
+        
+        <div class="gratitude-wall" id="gratitudeWall">
+          <div class="gratitude-card animate__animated animate__fadeInUp">
+            <p class="gratitude-text">I'm grateful for the beautiful sunny day today.</p>
+            <p class="gratitude-date">Today</p>
+          </div>
+          <div class="gratitude-card animate__animated animate__fadeInUp">
+            <p class="gratitude-text">Grateful for my supportive friends who are always there for me.</p>
+            <p class="gratitude-date">Yesterday</p>
+          </div>
+          <div class="gratitude-card animate__animated animate__fadeInUp">
+            <p class="gratitude-text">Thankful for having a job that allows me to grow and learn.</p>
+            <p class="gratitude-date">2 days ago</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Chatbot -->
+      <div id="chatbot" class="tab-content">
+        <h3 class="tab-title">Calm Companion Chatbot</h3>
+        <p>Talk to our supportive AI companion anytime you need someone to listen.</p>
+        
+        <div class="chatbot-container">
+          <div class="chat-header">
+            <i class="fas fa-robot"></i> Calm Companion Chat
+          </div>
+          <div class="chat-messages" id="chatMessages">
+            <div class="message bot-message animate__animated animate__fadeInLeft">
+              Hello! I'm your Calm Companion. How are you feeling today? 😊
+            </div>
+          </div>
+          <div class="chat-input-container">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Type your message...">
+            <button class="send-btn" id="sendBtn">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section id="team" class="team">
+    <div class="container">
+      <h2 class="section-title fade-in">Our Team</h2>
+      <p class="subheading fade-in">Meet the creators behind Calm Companion</p>
+      
+      <div class="team-grid">
+        <div class="team-member scale-in" data-delay="100">
+          <div class="member-avatar">N</div>
+          <h3 class="member-name">Natasha Rajak</h3>
+          <p class="member-role">Lead Developer</p>
+        </div>
+        <div class="team-member scale-in" data-delay="200">
+          <div class="member-avatar">M</div>
+          <h3 class="member-name">Milan Manandhar</h3>
+          <p class="member-role">UI/UX Designer</p>
+        </div>
+        <div class="team-member scale-in" data-delay="300">
+          <div class="member-avatar">R</div>
+          <h3 class="member-name">Riya Gamre</h3>
+          <p class="member-role">Frontend Developer</p>
+        </div>
+        <div class="team-member scale-in" data-delay="400">
+          <div class="member-avatar">A</div>
+          <h3 class="member-name">Aaditya Sahu</h3>
+          <p class="member-role">Backend Developer</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>Calm Companion</h3>
+          <p>Your mental wellness space designed to help you unwind, reflect, and find peace in a fast-moving world.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#home"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="#features"><i class="fas fa-star"></i>Features</a></li>
+            <li><a href="#app"><i class="fas fa-mobile-alt"></i>App</a></li>
+            <li><a href="#team"><i class="fas fa-users"></i>Our Team</a></li>
+          </ul>
+        </div>
+        <div class="footer-col" id="contact">
+          <h3>Contact Us</h3>
+          <ul class="footer-links">
+            <li>
+              <a href="mailto:contactcalmcompanion@gmail.com">
+                <i class="fas fa-envelope"></i> contactcalmcompanion@gmail.com
+              </a>
+            </li>
+            <li><a href="tel:+918764579839"><i class="fas fa-phone"></i> +91 87645 79839</a></li>
+            <li><i class="fas fa-map-marker-alt"></i> Wellness Street, Peaceful City</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; 2023 Calm Companion. All rights reserved. Designed by Team 12.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 10000; justify-content: center; align-items: center;">
+    <div class="modal-content animate__animated animate__fadeInUp" style="background: white; padding: 30px; border-radius: 15px; max-width: 400px; width: 90%; position: relative;">
+      <span class="close" onclick="closeModal('loginModal')" style="position: absolute; top: 15px; right: 20px; font-size: 24px; cursor: pointer; color: #999;">&times;</span>
+      <h2 style="margin-bottom: 20px; text-align: center; color: var(--primary);">Login</h2>
+      <form onsubmit="handleLogin(event)">
+        <input type="email" id="loginEmail" placeholder="Email" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 2px solid #e0e0e0; border-radius: 8px; font-family: inherit;">
+        <input type="password" id="loginPassword" placeholder="Password" required style="width: 100%; padding: 12px; margin-bottom: 20px; border: 2px solid #e0e0e0; border-radius: 8px; font-family: inherit;">
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+      </form>
+      <p style="text-align: center; margin-top: 15px; color: #666;">
+        Don't have an account? <a href="#" onclick="closeModal('loginModal'); showRegister();" style="color: var(--primary); text-decoration: none;">Sign up</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Register Modal -->
+  <div id="registerModal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 10000; justify-content: center; align-items: center;">
+    <div class="modal-content animate__animated animate__fadeInUp" style="background: white; padding: 30px; border-radius: 15px; max-width: 400px; width: 90%; position: relative;">
+      <span class="close" onclick="closeModal('registerModal')" style="position: absolute; top: 15px; right: 20px; font-size: 24px; cursor: pointer; color: #999;">&times;</span>
+      <h2 style="margin-bottom: 20px; text-align: center; color: var(--primary);">Sign Up</h2>
+      <form onsubmit="handleRegister(event)">
+        <input type="text" id="regUsername" placeholder="Username" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 2px solid #e0e0e0; border-radius: 8px; font-family: inherit;">
+        <input type="email" id="regEmail" placeholder="Email" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 2px solid #e0e0e0; border-radius: 8px; font-family: inherit;">
+        <input type="password" id="regPassword" placeholder="Password" required style="width: 100%; padding: 12px; margin-bottom: 20px; border: 2px solid #e0e0e0; border-radius: 8px; font-family: inherit;">
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Sign Up</button>
+      </form>
+      <p style="text-align: center; margin-top: 15px; color: #666;">
+        Already have an account? <a href="#" onclick="closeModal('registerModal'); showLogin();" style="color: var(--primary); text-decoration: none;">Login</a>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // ===== UTILITY FUNCTIONS =====
+    function scrollToSection(sectionId) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function showNotification(message, type = 'success') {
+      const notification = document.createElement('div');
+      notification.className = `notification animate__animated animate__fadeInDown`;
+      notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: ${type === 'success' ? 'linear-gradient(135deg, #4caf50, #45a049)' : 'linear-gradient(135deg, #f44336, #da190b)'};
+        color: white;
+        padding: 15px 20px;
+        border-radius: 8px;
+        z-index: 10001;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        max-width: 300px;
+      `;
+      notification.textContent = message;
+      document.body.appendChild(notification);
+
+      setTimeout(() => {
+        notification.classList.remove('animate__fadeInDown');
+        notification.classList.add('animate__fadeOutUp');
+        setTimeout(() => document.body.removeChild(notification), 500);
+      }, 3000);
+    }
+
+    // ===== INTERSECTION OBSERVER FOR ANIMATIONS =====
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const delay = entry.target.dataset.delay || 0;
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+            if (entry.target.classList.contains('scale-in')) {
+              entry.target.classList.add('bounce-in');
+            }
+          }, delay);
+        }
+      });
+    }, observerOptions);
+
+    // Observe elements for animation
+    document.addEventListener('DOMContentLoaded', () => {
+      const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in');
+      animatedElements.forEach(el => observer.observe(el));
+    });
+
+    // ===== SCROLL TO TOP BUTTON =====
+    const scrollTopBtn = document.getElementById('scrollTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        scrollTopBtn.classList.add('show');
+      } else {
+        scrollTopBtn.classList.remove('show');
+      }
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ===== MOBILE MENU =====
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      const icon = mobileMenuBtn.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-times');
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        const icon = mobileMenuBtn.querySelector('i');
+        icon.classList.add('fa-bars');
+        icon.classList.remove('fa-times');
+      });
+    });
+
+    // ===== AUTHENTICATION =====
+    let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
+
+    function updateAuthUI() {
+      const authButtons = document.getElementById('authButtons');
+      if (currentUser) {
+        authButtons.innerHTML = `
+          <span style="color: var(--primary); font-weight: 600;">Welcome, ${currentUser.username}!</span>
+          <button class="btn btn-outline" onclick="logout()">Logout</button>
+        `;
+      } else {
+        authButtons.innerHTML = `
+          <a href="#" class="btn btn-outline" onclick="showLogin()">Login</a>
+          <a href="#" class="btn btn-primary" onclick="showRegister()">Sign Up</a>
+        `;
+      }
+    }
+
+    function showLogin() {
+      document.getElementById('loginModal').style.display = 'flex';
+    }
+
+    function showRegister() {
+      document.getElementById('registerModal').style.display = 'flex';
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = 'none';
+    }
+
+    function handleLogin(event) {
+      event.preventDefault();
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+      
+      // Simulate authentication
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+      const user = users.find(u => u.email === email && u.password === password);
+      
+      if (user) {
+        currentUser = user;
+        localStorage.setItem('currentUser', JSON.stringify(currentUser));
+        updateAuthUI();
+        closeModal('loginModal');
+        showNotification(`Welcome back, ${user.username}!`, 'success');
+      } else {
+        showNotification('Invalid email or password', 'error');
+      }
+    }
+
+    function handleRegister(event) {
+      event.preventDefault();
+      const username = document.getElementById('regUsername').value;
+      const email = document.getElementById('regEmail').value;
+      const password = document.getElementById('regPassword').value;
+      
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+      
+      // Check if user already exists
+      if (users.find(u => u.email === email)) {
+        showNotification('User already exists with this email', 'error');
+        return;
+      }
+      
+      const newUser = { username, email, password };
+      users.push(newUser);
+      localStorage.setItem('users', JSON.stringify(users));
+      
+      currentUser = newUser;
+      localStorage.setItem('currentUser', JSON.stringify(currentUser));
+      updateAuthUI();
+      closeModal('registerModal');
+      showNotification(`Welcome, ${username}! Your account has been created.`, 'success');
+    }
+
+    function logout() {
+      currentUser = null;
+      localStorage.removeItem('currentUser');
+      updateAuthUI();
+      showNotification('You have been logged out', 'success');
+    }
+
+    // ===== TAB FUNCTIONALITY =====
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const targetTab = btn.getAttribute('data-tab');
+          
+          // Remove active class from all buttons and contents
+          tabBtns.forEach(b => b.classList.remove('active'));
+          tabContents.forEach(c => {
+            c.classList.remove('active');
+            c.style.display = 'none';
+          });
+          
+          // Add active class to clicked button and corresponding content
+          btn.classList.add('active');
+          const targetContent = document.getElementById(targetTab);
+          if (targetContent) {
+            targetContent.style.display = 'block';
+            targetContent.classList.add('active');
+            targetContent.classList.add('animate__animated', 'animate__fadeIn');
+            
+            // Remove animation classes after animation completes
+            setTimeout(() => {
+              targetContent.classList.remove('animate__animated', 'animate__fadeIn');
+            }, 600);
+          }
+        });
+      });
+    });
+
+    // ===== GRATITUDE WALL =====
+    function addGratitude() {
+      const input = document.getElementById('gratitudeInput');
+      const text = input.value.trim();
+      
+      if (!text) {
+        showNotification('Please enter something you\'re grateful for', 'error');
+        return;
+      }
+      
+      const gratitudeWall = document.getElementById('gratitudeWall');
+      const gratitudeCard = document.createElement('div');
+      gratitudeCard.className = 'gratitude-card animate__animated animate__fadeInUp';
+      gratitudeCard.innerHTML = `
+        <p class="gratitude-text">${text}</p>
+        <p class="gratitude-date">Just now</p>
+      `;
+      
+      gratitudeWall.insertBefore(gratitudeCard, gratitudeWall.firstChild);
+      input.value = '';
+      
+      // Save to localStorage
+      const gratitudes = JSON.parse(localStorage.getItem('gratitudes')) || [];
+      gratitudes.unshift({
+        text: text,
+        date: new Date().toISOString(),
+        id: Date.now()
+      });
+      localStorage.setItem('gratitudes', JSON.stringify(gratitudes));
+      
+      showNotification('Gratitude added successfully!', 'success');
+    }
+
+    // Load saved gratitudes on page load
+    function loadGratitudes() {
+      const gratitudes = JSON.parse(localStorage.getItem('gratitudes')) || [];
+      const gratitudeWall = document.getElementById('gratitudeWall');
+      
+      // Clear existing gratitudes (except sample ones)
+      const existingCards = gratitudeWall.querySelectorAll('.gratitude-card');
+      existingCards.forEach((card, index) => {
+        if (index >= 3) { // Keep first 3 sample cards
+          card.remove();
+        }
+      });
+      
+      gratitudes.forEach((gratitude, index) => {
+        const gratitudeCard = document.createElement('div');
+        gratitudeCard.className = 'gratitude-card animate__animated animate__fadeInUp';
+        gratitudeCard.style.animationDelay = `${index * 100}ms`;
+        
+        const date = new Date(gratitude.date);
+        const timeAgo = getTimeAgo(date);
+        
+        gratitudeCard.innerHTML = `
+          <p class="gratitude-text">${gratitude.text}</p>
+          <p class="gratitude-date">${timeAgo}</p>
+        `;
+        
+        gratitudeWall.insertBefore(gratitudeCard, gratitudeWall.firstChild);
+      });
+    }
+
+    function getTimeAgo(date) {
+      const now = new Date();
+      const diffTime = Math.abs(now - date);
+      const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+      const diffHours = Math.floor(diffTime / (1000 * 60 * 60));
+      const diffMinutes = Math.floor(diffTime / (1000 * 60));
+      
+      if (diffDays > 0) {
+        return `${diffDays} day${diffDays > 1 ? 's' : ''} ago`;
+      } else if (diffHours > 0) {
+        return `${diffHours} hour${diffHours > 1 ? 's' : ''} ago`;
+      } else if (diffMinutes > 0) {
+        return `${diffMinutes} minute${diffMinutes > 1 ? 's' : ''} ago`;
+      } else {
+        return 'Just now';
+      }
+    }
+
+    // ===== ENHANCED CHATBOT =====
+    const chatInput = document.querySelector('.chat-input');
+    const chatMessages = document.querySelector('.chat-messages');
+    const sendBtn = document.querySelector('.send-btn');
+    
+    // Conversation state for context awareness
+    let conversationState = {
+        lastEmotion: null,
+        lastTopic: null,
+        conversationHistory: [],
+        userName: null
+    };
+    
+    // Expanded knowledge base about the website
+    const websiteInfo = {
+        purpose: "Calm Companion is a comprehensive mental wellness platform designed to help you unwind, reflect, and find peace in a fast-moving world. We offer various tools to support your emotional well-being and personal growth journey.",
+        features: {
+            music: "Our Music Lounge offers carefully curated playlists for relaxation, focus, and sleep through Spotify integration. It's designed to help you create the perfect atmosphere for your mental wellness journey.",
+            meditation: "We provide guided meditations and breathing exercises via embedded YouTube videos. These practices can help reduce stress, improve focus, and promote emotional balance.",
+            quotes: "Our Inspirational Quotes section offers daily positive affirmations and quotes to uplift your mood and mindset. Starting your day with positive thoughts can set a constructive tone.",
+            gratitude: "The Gratitude Wall is a personal space to record and reflect on things you're grateful for. Practicing gratitude regularly has been shown to improve mental health and happiness.",
+            profile: "Your User Profile allows for a personalized experience with your preferences and progress tracking. It helps us tailor your wellness journey to your specific needs."
+        },
+        benefits: [
+            "Reduced stress and anxiety through guided practices",
+            "Improved focus with specially designed music and exercises",
+            "Increased positivity with daily affirmations and gratitude practice",
+            "Better emotional balance and self-awareness over time",
+            "Improved sleep quality with our relaxation playlists",
+            "Enhanced self-care routines with our structured approach"
+        ],
+        howToUse: "You can explore Calm Companion by navigating through different sections: try our Music Lounge for relaxation, practice meditation in the Meditation section, get inspired by our Quotes, express gratitude on the Gratitude Wall, or chat with me anytime you need support."
+    };
+    
+    // Expanded emotion detection and response patterns
+    const emotionResponses = {
+        sad: {
+            patterns: ["sad", "unhappy", "depressed", "down", "blue", "crying", "tears", "hopeless", "worthless", "miserable", "heartbroken", "grief"],
+            responses: [
+                "I'm really sorry you're feeling sad right now. Remember that it's okay to feel this way, and these feelings will pass. Would you like to try some calming music or a guided meditation to help ease your mind?",
+                "I hear that you're feeling sad. Sometimes, expressing gratitude can help shift our perspective. Would you like to try adding something to your Gratitude Wall? Even small things can make a difference.",
+                "It sounds like you're going through a difficult time. I'm here to listen. Would you like to talk more about what's making you feel this way? Sometimes just expressing our feelings can help.",
+                "I'm sorry you're feeling this way. Remember to be gentle with yourself. Our meditation exercises might help you find some peace right now. Would you like me to suggest one?",
+                "Sadness is a natural emotion, and it's important to acknowledge it. Would you like to try a mindfulness exercise to help you sit with these feelings without judgment?"
+            ],
+            followUp: [
+                "How long have you been feeling this way?",
+                "Is there something specific that triggered these feelings?",
+                "Have you tried any of our relaxation techniques before?",
+                "Would you like me to suggest some activities that might help lift your mood?"
+            ]
+        },
+        lonely: {
+            patterns: ["alone", "lonely", "isolated", "no one", "by myself", "nobody cares", "abandoned", "left out", "disconnect"],
+            responses: [
+                "I'm sorry you're feeling lonely. Even though I'm just a chatbot, I'm here to keep you company. Would you like to explore some of our relaxing music together? Sometimes music can help us feel less alone.",
+                "Feeling lonely can be really difficult. Remember that connection comes in many forms. Our meditation section has some practices focused on connection and self-compassion that might help.",
+                "I understand how isolating loneliness can feel. You're not alone in feeling this way. Would you like to try a gratitude exercise to remind yourself of the good in your life?",
+                "I'm here with you right now. Sometimes when we feel lonely, focusing on our breath can help. Would you like to try a simple breathing exercise together?",
+                "Loneliness is something many people experience, even when surrounded by others. Would you like to try a guided meditation on connection and belonging?"
+            ],
+            followUp: [
+                "What does loneliness feel like for you right now?",
+                "Are there activities that usually help you feel more connected?",
+                "Would you like me to suggest some ways to build connection?",
+                "Have you tried reaching out to someone recently?"
+            ]
+        },
+        happy: {
+            patterns: ["happy", "joy", "excited", "great", "wonderful", "amazing", "good", "fantastic", "cheerful", "pleased", "delighted", "content"],
+            responses: [
+                "I'm so glad to hear you're feeling happy! That's wonderful. Would you like to share what's making you feel this way on your Gratitude Wall? It might help you remember this feeling later.",
+                "It's lovely to hear you're feeling happy! Our Music Lounge has some uplifting playlists that might complement your good mood. Music can enhance positive emotions.",
+                "That's wonderful to hear! When we're feeling happy, it's a great time to practice mindfulness and really savor the moment. Would you like to try a short meditation focused on joy?",
+                "I'm delighted to hear you're feeling happy! Positive emotions are worth celebrating. Have you checked out our inspirational quotes today? They might resonate with your current mood.",
+                "Happiness is a beautiful state to be in! This might be a perfect time to reflect on what's contributing to this feeling. Would you like to add to your Gratitude Wall?"
+            ],
+            followUp: [
+                "What's contributing to this happy feeling?",
+                "How can you extend this feeling?",
+                "Would you like to try a joy-focused meditation?",
+                "What activities make you feel this way most often?"
+            ]
+        },
+        frustrated: {
+            patterns: ["frustrated", "angry", "annoyed", "irritated", "upset", "mad", "furious", "stressed", "aggravated", "impatient"],
+            responses: [
+                "I understand you're feeling frustrated. That's a completely valid emotion. Sometimes a change of pace can help. Would you like to try some calming music to help you relax?",
+                "It sounds like you're dealing with frustration. Our meditation section has some exercises specifically designed for managing difficult emotions. They might help you find some calm.",
+                "I hear your frustration. Taking a few deep breaths might help you feel more centered. Would you like to try a simple breathing exercise with me?",
+                "Frustration can be really draining. Remember to be kind to yourself. Would you like to talk more about what's frustrating you, or would you prefer a distraction like some relaxing music?",
+                "It's completely normal to feel frustrated sometimes. Our meditation section has practices specifically for managing frustration and anger. Would you like to try one?"
+            ],
+            followUp: [
+                "What's causing this frustration?",
+                "How does this frustration manifest in your body?",
+                "Would you like to try a release exercise?",
+                "What usually helps you when you feel this way?"
+            ]
+        },
+        anxious: {
+            patterns: ["anxious", "worried", "nervous", "stress", "panic", "overwhelmed", "scared", "afraid", "tense", "restless"],
+            responses: [
+                "I understand you're feeling anxious. That can be really uncomfortable. Our meditation section has exercises specifically designed to help with anxiety. Would you like to try one?",
+                "It sounds like you're feeling anxious. Let's try a simple breathing exercise together: breathe in for 4 counts, hold for 4, and exhale for 6. This can help activate your body's relaxation response.",
+                "Anxiety can be so overwhelming. I'm here with you. Sometimes listening to calming music can help ease these feelings. Would you like to explore our Music Lounge?",
+                "I hear that you're feeling anxious. Remember that these feelings will pass. Would you like to try a guided meditation specifically for anxiety relief? It might help you find some calm.",
+                "Anxiety is your body's way of trying to protect you, even when it feels uncomfortable. Would you like to try a grounding exercise to help you feel more present?"
+            ],
+            followUp: [
+                "What thoughts are contributing to this anxiety?",
+                "Where do you feel this anxiety in your body?",
+                "What usually helps when you feel this way?",
+                "Would you like to try a progressive muscle relaxation exercise?"
+            ]
+        },
+        bad: {
+            patterns: ["bad", "terrible", "awful", "horrible", "not good", "unwell", "sick", "ill", "under the weather"],
+            responses: [
+                "I'm sorry to hear you're feeling bad. Would you like to tell me more about what's making you feel this way? Sometimes talking about it can help.",
+                "I understand you're not feeling well right now. Whether it's physical or emotional, taking care of yourself is important. Would you like to try some relaxing music or a guided meditation?",
+                "I'm sorry you're feeling bad. Remember that it's okay to have bad days. Would you like to try adding something to your Gratitude Wall to focus on the positive aspects of your day?",
+                "I hear that you're feeling bad. I'm here to support you. Would you like to try a breathing exercise to help you feel more centered?",
+                "It sounds like you're having a tough time. Remember that it's okay to not be okay sometimes. Would you like to try a self-compassion exercise?"
+            ],
+            followUp: [
+                "Can you tell me more about what's feeling bad?",
+                "Is this a physical or emotional feeling?",
+                "What do you think you need most right now?",
+                "Would you like some suggestions for self-care?"
+            ]
+        },
+        tired: {
+            patterns: ["tired", "exhausted", "fatigued", "drained", "sleepy", "worn out", "burnt out", "weary"],
+            responses: [
+                "I'm sorry to hear you're feeling tired. Rest is so important for our well-being. Would you like to try some relaxing music to help you unwind?",
+                "It sounds like you need some rest. Our meditation section has some practices specifically designed for relaxation and better sleep. Would you like to try one?",
+                "Feeling tired can make everything more difficult. Remember to be gentle with yourself. Would you like to try a guided relaxation exercise?",
+                "I hear that you're feeling exhausted. Sometimes a short mindfulness exercise can help restore some energy. Would you like to try one?",
+                "Rest is essential for our mental and physical health. Would you like some suggestions for improving your sleep quality?"
+            ],
+            followUp: [
+                "How long have you been feeling this way?",
+                "Are you getting enough sleep at night?",
+                "What activities drain your energy most?",
+                "Would you like some tips for better rest?"
+            ]
+        },
+        confused: {
+            patterns: ["confused", "uncertain", "unsure", "lost", "mixed up", "unclear"],
+            responses: [
+                "I understand you're feeling confused. It's okay to feel uncertain sometimes. Would you like to talk about what's confusing you?",
+                "Confusion can be uncomfortable, but it's often a sign that you're learning or growing. Would you like to try a mindfulness exercise to help clear your mind?",
+                "It sounds like things feel unclear right now. Sometimes taking a step back can help. Would you like to try a simple breathing exercise?",
+                "I hear that you're feeling confused. Let's try to break things down. What specifically feels unclear to you?",
+                "Confusion is a natural part of life. Would you like to try a meditation on clarity and focus?"
+            ],
+            followUp: [
+                "What specifically feels confusing?",
+                "What would make things clearer for you?",
+                "Have you tried writing down your thoughts?",
+                "Would you like some guidance on where to start?"
+            ]
+        }
+    };
+    
+    // Expanded general responses for when no specific emotion is detected
+    const generalResponses = [
+        "Thank you for sharing that with me. How are you feeling right now?",
+        "I'm here to listen. Would you like to tell me more about what's on your mind?",
+        "I appreciate you opening up. What would be most helpful for you right now?",
+        "Thank you for trusting me with your thoughts. How can I support you today?",
+        "I'm here to help in any way I can. Would you like to explore some of our wellness features together?",
+        "That sounds important. Would you like to talk more about it, or would you prefer some relaxation techniques?",
+        "I'm here to support you on your wellness journey. What's on your mind today?",
+        "Thank you for reaching out. How can I best support you right now?"
+    ];
+    
+    // Expanded responses for questions about the website
+    const infoResponses = {
+        "what is calm companion": websiteInfo.purpose,
+        "what is this app": websiteInfo.purpose,
+        "what is this website": websiteInfo.purpose,
+        "what does this app do": websiteInfo.purpose,
+        "what does this website do": websiteInfo.purpose,
+        "tell me about calm companion": websiteInfo.purpose,
+        "tell me about this app": websiteInfo.purpose,
+        "how does this work": websiteInfo.howToUse,
+        "how do i use this app": websiteInfo.howToUse,
+        "what can i do here": websiteInfo.howToUse,
+        "what features do you have": `Our main features include: ${Object.keys(websiteInfo.features).join(', ')}. Would you like to know more about any specific feature?`,
+        "what can i do on this app": `Our main features include: ${Object.keys(websiteInfo.features).join(', ')}. Would you like to know more about any specific feature?`,
+        "how can you help me": "I'm here to provide emotional support and information about Calm Companion's features. You can talk to me about your feelings, and I'll suggest resources from our platform that might help.",
+        "who created this": "Calm Companion was created by Natasha Rajak, Milan Manandhar, Riya Gamre, and Aaditya Sahu.",
+        "who made this": "Calm Companion was created by Natasha Rajak, Milan Manandhar, Riya Gamre, and Aaditya Sahu.",
+        "what is the purpose of this app": websiteInfo.purpose,
+        "why should i use this app": "Calm Companion can help you reduce stress, improve focus, increase positivity, and develop better emotional balance through our various wellness tools and practices.",
+        "what are the benefits": `The benefits of using Calm Companion include: ${websiteInfo.benefits.join(', ')}.`,
+        "how does this help with mental health": "Calm Companion supports mental health by providing tools for relaxation, mindfulness, positive thinking, and emotional expression. Regular use can help reduce stress, improve mood, and build emotional resilience.",
+        "what makes this app special": "What makes Calm Companion special is our holistic approach to mental wellness. We combine music, meditation, gratitude practice, inspirational content, and AI support in one integrated platform.",
+        "is this app free": "Yes, Calm Companion is completely free to use. We believe mental wellness support should be accessible to everyone.",
+        "do i need to create an account": "You can use most features without an account, but creating one allows you to save your progress and personalize your experience."
+    };
+    
+    // Feature-specific responses
+    const featureResponses = {
+        "tell me about music": websiteInfo.features.music,
+        "tell me about meditation": websiteInfo.features.meditation,
+        "tell me about quotes": websiteInfo.features.quotes,
+        "tell me about gratitude": websiteInfo.features.gratitude,
+        "tell me about the gratitude wall": websiteInfo.features.gratitude,
+        "what is the music lounge": websiteInfo.features.music,
+        "what is the meditation section": websiteInfo.features.meditation,
+        "what is the quotes section": websiteInfo.features.quotes,
+        "what is the gratitude wall": websiteInfo.features.gratitude,
+        "how does music help": "Music can have a powerful effect on our mood and mental state. Our curated playlists are designed to help with relaxation, focus, and sleep by using specific tempos, rhythms, and frequencies that promote calm and wellbeing.",
+        "how does meditation help": "Meditation helps by training your mind to focus and redirect your thoughts. It can reduce stress, increase self-awareness, improve concentration, and promote emotional health through regular practice.",
+        "how does gratitude help": "Practicing gratitude regularly can shift your focus from what's lacking to what you have. This simple practice has been shown to improve mood, reduce stress, and increase overall life satisfaction.",
+        "how do quotes help": "Inspirational quotes can provide perspective, motivation, and comfort. Reading positive affirmations regularly can help rewire your brain to focus on the positive and build resilience."
+    };
+    
+    // Exercise suggestions
+    const exerciseSuggestions = {
+        breathing: "Let's try a simple breathing exercise together. Breathe in slowly for 4 counts, hold for 4 counts, and exhale slowly for 6 counts. Repeat this for a few minutes and notice how your body begins to relax.",
+        grounding: "Try this grounding exercise: Name 5 things you can see, 4 things you can touch, 3 things you can hear, 2 things you can smell, and 1 thing you can taste. This can help bring you back to the present moment.",
+        bodyScan: "Let's do a quick body scan. Starting from your toes, slowly bring your attention to each part of your body, noticing any sensations without judgment. This can help release tension you didn't even know you were holding.",
+        visualization: "Close your eyes and imagine a peaceful place. It could be a beach, a forest, or anywhere you feel safe and calm. Picture yourself there, noticing all the details - the sounds, smells, and sensations. Spend a few moments in this peaceful place."
+    };
+    
+    // Function to detect emotions in user's message
+    function detectEmotion(message) {
+        const lowerMessage = message.toLowerCase();
+        
+        for (const [emotion, data] of Object.entries(emotionResponses)) {
+            for (const pattern of data.patterns) {
+                if (lowerMessage.includes(pattern)) {
+                    return emotion;
+                }
+            }
+        }
+        return null;
+    }
+    
+    // Function to check if user is asking about the website
+    function checkForInfoRequest(message) {
+        const lowerMessage = message.toLowerCase();
+        
+        // Check for general info requests
+        for (const [question, answer] of Object.entries(infoResponses)) {
+            if (lowerMessage.includes(question)) {
+                return answer;
+            }
+        }
+        
+        // Check for feature-specific requests
+        for (const [question, answer] of Object.entries(featureResponses)) {
+            if (lowerMessage.includes(question)) {
+                return answer;
+            }
+        }
+        
+        return null;
+    }
+    
+    // Function to handle harsh language
+    function containsHarshLanguage(message) {
+        const harshWords = ["hate", "stupid", "idiot", "damn", "crap", "useless", "worthless", "shut up", "fuck", "shit"];
+        const lowerMessage = message.toLowerCase();
+        
+        return harshWords.some(word => lowerMessage.includes(word));
+    }
+    
+    // Function to detect if user wants an exercise
+    function wantsExercise(message) {
+        const lowerMessage = message.toLowerCase();
+        const exerciseKeywords = ["exercise", "practice", "try", "help me", "what should i do", "suggestion", "recommend"];
+        
+        return exerciseKeywords.some(keyword => lowerMessage.includes(keyword));
+    }
+    
+    // Function to get appropriate response
+    function getResponse(userMessage) {
+        // Add to conversation history
+        conversationState.conversationHistory.push({text: userMessage, isUser: true});
+        
+        // Check for harsh language first
+        if (containsHarshLanguage(userMessage)) {
+            conversationState.lastEmotion = "frustrated";
+            return "I understand you might be feeling frustrated right now, and that's okay. I'm here to help in any way I can. Would you like to talk about what's bothering you or try some of our relaxation exercises?";
+        }
+        
+        // Check if user is asking about the website
+        const infoResponse = checkForInfoRequest(userMessage);
+        if (infoResponse) {
+            conversationState.lastTopic = "info";
+            return infoResponse;
+        }
+        
+        // Check for specific emotions
+        const emotion = detectEmotion(userMessage);
+        if (emotion) {
+            conversationState.lastEmotion = emotion;
+            const responses = emotionResponses[emotion].responses;
+            return responses[Math.floor(Math.random() * responses.length)];
+        }
+        
+        // Check if user wants an exercise suggestion
+        if (wantsExercise(userMessage) && conversationState.lastEmotion) {
+            const exercises = Object.values(exerciseSuggestions);
+            return exercises[Math.floor(Math.random() * exercises.length)];
+        }
+        
+        // Check for follow-up questions based on conversation state
+        if (conversationState.lastEmotion && (userMessage.toLowerCase().includes("yes") || userMessage.toLowerCase().includes("sure"))) {
+            const followUpResponses = emotionResponses[conversationState.lastEmotion].followUp;
+            if (followUpResponses) {
+                return followUpResponses[Math.floor(Math.random() * followUpResponses.length)];
+            }
+        }
+        
+        // If no specific emotion or question is detected, return a general response
+        return generalResponses[Math.floor(Math.random() * generalResponses.length)];
+    }
+    
+    // Function to add a message to the chat
+    function addMessage(text, isUser = false) {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message');
+        messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+        messageDiv.textContent = text;
+        chatMessages.appendChild(messageDiv);
+        
+        // Add to conversation history
+        if (!isUser) {
+            conversationState.conversationHistory.push({text: text, isUser: false});
+        }
+        
+        // Scroll to bottom
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    
+    // Function to handle user message
+    function handleUserMessage() {
+        const message = chatInput.value.trim();
+        if (message) {
+            addMessage(message, true);
+            chatInput.value = '';
+            
+            // Simulate bot response after a short delay
+            setTimeout(() => {
+                const response = getResponse(message);
+                addMessage(response);
+            }, 1000);
+        }
+    }
+    
+    // Event listeners for chatbot
+    sendBtn.addEventListener('click', handleUserMessage);
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            handleUserMessage();
+        }
+    });
+
+    // ===== QUOTES GENERATOR =====
+    const inspirationalQuotes = [
+      {
+        text: "The only way to do great work is to love what you do.",
+        author: "Steve Jobs"
+      },
+      {
+        text: "Peace comes from within. Do not seek it without.",
+        author: "Buddha"
+      },
+      {
+        text: "In the midst of winter, I found there was, within me, an invincible summer.",
+        author: "Albert Camus"
+      },
+      {
+        text: "The best way to take care of the future is to take care of the present moment.",
+        author: "Thich Nhat Hanh"
+      },
+      {
+        text: "What we think, we become.",
+        author: "Buddha"
+      },
+      {
+        text: "Happiness is not something ready made. It comes from your own actions.",
+        author: "Dalai Lama"
+      },
+      {
+        text: "The wound is the place where the Light enters you.",
+        author: "Rumi"
+      },
+      {
+        text: "Yesterday is history, tomorrow is a mystery, today is a gift.",
+        author: "Eleanor Roosevelt"
+      },
+      {
+        text: "Be yourself; everyone else is already taken.",
+        author: "Oscar Wilde"
+      },
+      {
+        text: "The journey of a thousand miles begins with one step.",
+        author: "Lao Tzu"
+      }
+    ];
+
+    function generateNewQuote() {
+      const quotesContainer = document.getElementById('quotesContainer');
+      const randomQuote = inspirationalQuotes[Math.floor(Math.random() * inspirationalQuotes.length)];
+      
+      const newQuoteCard = document.createElement('div');
+      newQuoteCard.className = 'quote-card animate__animated animate__bounceIn';
+      newQuoteCard.innerHTML = `
+        <p>"${randomQuote.text}"</p>
+        <p class="quote-author">- ${randomQuote.author}</p>
+      `;
+      
+      // Add the new quote at the beginning
+      quotesContainer.insertBefore(newQuoteCard, quotesContainer.firstChild);
+      
+      // Remove the last quote if there are more than 6
+      const quotes = quotesContainer.querySelectorAll('.quote-card');
+      if (quotes.length > 6) {
+        const lastQuote = quotes[quotes.length - 1];
+        lastQuote.classList.add('animate__animated', 'animate__fadeOut');
+        setTimeout(() => {
+          quotesContainer.removeChild(lastQuote);
+        }, 500);
+      }
+      
+      showNotification('New inspiring quote added!', 'success');
+    }
+
+    // ===== SMOOTH SCROLLING FOR NAVIGATION =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // ===== PARALLAX EFFECT FOR HERO SECTION =====
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const hero = document.querySelector('.hero');
+      if (hero) {
+        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+      }
+    });
+
+    // ===== TYPEWRITER EFFECT FOR HERO TITLE =====
+    function typeWriter(element, text, speed = 50) {
+      let i = 0;
+      element.innerHTML = '';
+      element.style.borderRight = '3px solid var(--primary)';
+      
+      function type() {
+        if (i < text.length) {
+          element.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(type, speed);
+        } else {
+          // Remove cursor after typing is complete
+          setTimeout(() => {
+            element.style.borderRight = 'none';
+          }, 1000);
+        }
+      }
+      type();
+    }
+
+    // ===== INITIALIZE EVERYTHING =====
+    document.addEventListener('DOMContentLoaded', () => {
+      updateAuthUI();
+      loadGratitudes();
+      
+      // Add typewriter effect to hero title
+      const heroTitle = document.querySelector('.tagline');
+      if (heroTitle) {
+        const originalText = heroTitle.textContent;
+        setTimeout(() => {
+          typeWriter(heroTitle, originalText, 80);
+        }, 1000);
+      }
+      
+      // Add floating animation to feature icons
+      document.querySelectorAll('.feature-icon').forEach((icon, index) => {
+        icon.style.animationDelay = `${index * 0.2}s`;
+        icon.classList.add('animate__animated', 'animate__bounce');
+      });
+      
+      // Initialize welcome message
+      setTimeout(() => {
+        if (!currentUser) {
+          showNotification('Welcome to Calm Companion! Sign up to personalize your experience.', 'success');
+        }
+      }, 2000);
+    });
+
+    // ===== KEYBOARD SHORTCUTS =====
+    document.addEventListener('keydown', (e) => {
+      // ESC key to close modals
+      if (e.key === 'Escape') {
+        closeModal('loginModal');
+        closeModal('registerModal');
+      }
+      
+      // Ctrl/Cmd + Enter to add gratitude
+      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+        const gratitudeInput = document.getElementById('gratitudeInput');
+        if (gratitudeInput === document.activeElement) {
+          addGratitude();
+        }
+      }
+    });
+
+    // ===== PROGRESSIVE WEB APP FEATURES =====
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => {
+            console.log('SW registered: ', registration);
+          })
+          .catch(registrationError => {
+            console.log('SW registration failed: ', registrationError);
+          });
+      });
+    }
+
+    // ===== ACCESSIBILITY IMPROVEMENTS =====
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Tab') {
+        document.body.classList.add('keyboard-navigation');
+      }
+    });
+
+    document.addEventListener('mousedown', () => {
+      document.body.classList.remove('keyboard-navigation');
+    });
+
+    // ===== PERFORMANCE OPTIMIZATIONS =====
+    // Lazy load iframes
+    const iframes = document.querySelectorAll('iframe[data-src]');
+    const iframeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const iframe = entry.target;
+          iframe.src = iframe.dataset.src;
+          iframe.removeAttribute('data-src');
+          iframeObserver.unobserve(iframe);
+        }
+      });
+    });
+
+    iframes.forEach(iframe => iframeObserver.observe(iframe));
+
+    // ===== EASTER EGGS =====
+    let konamiCode = [];
+    const konamiSequence = [
+      'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+      'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
+      'KeyB', 'KeyA'
+    ];
+
+    document.addEventListener('keydown', (e) => {
+      konamiCode.push(e.code);
+      if (konamiCode.length > konamiSequence.length) {
+        konamiCode.shift();
+      }
+      
+      if (konamiCode.join(',') === konamiSequence.join(',')) {
+        // Easter egg activated!
+        document.body.style.filter = 'hue-rotate(180deg)';
+        showNotification('🎉 Easter egg activated! Colors inverted!', 'success');
+        setTimeout(() => {
+          document.body.style.filter = 'none';
+        }, 5000);
+        konamiCode = [];
+      }
+    });
+
+    // ===== DARK MODE TOGGLE (BONUS FEATURE) =====
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      const isDarkMode = document.body.classList.contains('dark-mode');
+      localStorage.setItem('darkMode', isDarkMode);
+      showNotification(`${isDarkMode ? 'Dark' : 'Light'} mode activated!`, 'success');
+    }
+
+    // Load dark mode preference
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.body.classList.add('dark-mode');
+    }
+
+    // Add dark mode styles
+    const darkModeStyles = `
+      .dark-mode {
+        --background: #1a1a2e;
+        --card-bg: #16213e;
+        --text: #e0e0e0;
+        --primary: #7289da;
+        --primary-light: #8fa5e0;
+      }
+      
+      .dark-mode .hero {
+        background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+      }
+      
+      .dark-mode .benefits {
+        background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+      }
+    `;
+
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = darkModeStyles;
+    document.head.appendChild(styleSheet);
+
+    // ===== ANALYTICS AND USER ENGAGEMENT =====
+    let sessionStartTime = Date.now();
+    let interactionCount = 0;
+
+    function trackInteraction(action) {
+      interactionCount++;
+      const sessionData = {
+        action,
+        timestamp: Date.now(),
+        sessionDuration: Date.now() - sessionStartTime,
+        totalInteractions: interactionCount
+      };
+      
+      // Store interaction data (in a real app, this would be sent to analytics service)
+      const interactions = JSON.parse(localStorage.getItem('interactions')) || [];
+      interactions.push(sessionData);
+      localStorage.setItem('interactions', JSON.stringify(interactions));
+    }
+
+    // Track various user interactions
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('btn')) {
+        trackInteraction(`button_click_${e.target.textContent.trim()}`);
+      }
+    });
+
+    // ===== FINAL INITIALIZATION =====
+    window.addEventListener('load', () => {
+      // Hide loading screen if you had one
+      document.body.classList.add('loaded');
+      
+      // Initialize any remaining features
+      console.log('🧘‍♀️ Calm Companion loaded successfully!');
+      console.log('✨ Enhanced with animations and interactivity');
+    });
+
+    // ===== ERROR HANDLING =====
+    window.addEventListener('error', (e) => {
+      console.error('An error occurred:', e.error);
+      showNotification('Something went wrong. Please refresh the page.', 'error');
+    });
+
+    // ===== UNHANDLED PROMISE REJECTIONS =====
+    window.addEventListener('unhandledrejection', (e) => {
+      console.error('Unhandled promise rejection:', e.reason);
+      e.preventDefault();
+    });
+  </script>
+</body>
+</html>
